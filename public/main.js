@@ -6,7 +6,7 @@
   
   var connected = false;
 
-  var socket = io("ws://n3avigo.cusat.tk",{secure: false});
+  var socket = io();
   
   var randomString = function(length) {
     var text = "";
