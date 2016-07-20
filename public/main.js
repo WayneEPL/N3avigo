@@ -19,7 +19,7 @@
   function findMe() {
     navigator.geolocation.getCurrentPosition(function(location) {
       socket.emit('new location',{
-        uname : username;
+        uname : username,
         tyLat : location.coords.latitude,
         tyLng : location.coords.longitude
       })
