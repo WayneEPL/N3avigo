@@ -4,6 +4,10 @@
   <meta charset="UTF-8">
   <title>Navigo Test 0.3</title>
   <!--<link rel="stylesheet" href="style.css">-->
+  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdC-pYJjS-9VwYvqY67tAETLzOQxELZkc&callback=initMap"></script>
+  <!--<script type="text/javascript" src="sjcl.js"></script>-->
+  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
+  <script src="/socket.io/socket.io.js"></script>
   <script type="text/javascript">
     function initMap() {
       var mapDiv = document.getElementById('googleMap');
@@ -29,12 +33,8 @@
       });
       */
     }
-    initMap();
+    //initMap();
   </script>
-  <script async defer src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdC-pYJjS-9VwYvqY67tAETLzOQxELZkc&callback=initMap"></script>
-  <!--<script type="text/javascript" src="sjcl.js"></script>
-  <script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>
-  <script src="/socket.io/socket.io.js"></script>-->
 </head>
 <body>
   <div id="googleMap" style="width:100%;height:100%;"></div>
