@@ -41,7 +41,7 @@
   // Whenever the server emits 'new message', update the chat body
   socket.on('new location', function (data) {
     console.log(data);
-    //him.setPosition(new google.maps.LatLng(9,76));
+    him.setPosition(new google.maps.LatLng(data.tyLat,data.tyLng));
   });
 
   // Whenever the server emits 'user joined', log it in the chat body
