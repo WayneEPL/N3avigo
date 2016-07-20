@@ -3,8 +3,8 @@ var fs = require('fs');
 var express = require('express');
 var app = express();
 var options = {
-    key: fs.readFileSync('/etc/ssl/cusat.tk/n3avigo.key'),
-    cert: fs.readFileSync('/etc/ssl/cusat.tk/n3avigo.crt')
+    key: fs.readFileSync('/etc/ssl/cusat.tk/navigo/private.key'),
+    cert: fs.readFileSync('/etc/ssl/cusat.tk/navigo/public.crt')
 }
 var server = require('https').createServer(options,app);
 var io = require('socket.io')(server);
@@ -28,8 +28,8 @@ io.on('connection', function (socket) {
   socket.on('new location', function (data) {
     // we tell the client to execute 'new message'
     socket.broadcast.emit('new location', {
-      username: socket.username,
-      location: data
+      tyLat: data.tyLat,
+      tyLng: data.tyLng
     });
   });
 
