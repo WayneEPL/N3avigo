@@ -34,7 +34,7 @@ $(function() {
 
   // Whenever the server emits 'new message', update the chat body
   socket.on('new location', function (data) {
-    addChatMessage(data);
+    console.log(data);
   });
 
   // Whenever the server emits 'user joined', log it in the chat body
