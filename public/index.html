@@ -8,7 +8,7 @@
   <script type="text/javascript" src="sjcl.js"> </script>
   <script>
     var map;
-    var you;
+    //var you;
     var him;
     var himLat;
     var himLng;
@@ -19,11 +19,11 @@
           mapTypeId:google.maps.MapTypeId.ROADMAP
       };
         map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-        you = new google.maps.Marker({
+      /*you = new google.maps.Marker({
         map: map,
         position: {lat:0,lng:0},
         title: 'You'
-      });
+      });*/
       him = new google.maps.Marker({
         map: map,
         position: {lat:0,lng:0},
@@ -37,17 +37,7 @@
       bounds.extend(him.getPosition());
       map.fitBounds(bounds);
     }
-    function findMe() {
-      navigator.geolocation.getCurrentPosition(function(location) {
-        var tyLat = location.coords.latitude;
-        var tyLng = location.coords.longitude;
-        you.setPosition(new google.maps.LatLng( tyLat,tyLng ));
-        him.setPosition(new google.maps.LatLng( himLat,himLng ));
-        //console.log(location.coords.accuracy);
-      });
-    }
     setTimeout(resize, 250);
-    setTimeout(findMe, 500);
   </script>
 </head>
 <body>

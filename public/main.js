@@ -20,6 +20,18 @@
   var username = randomString(8);
   socket.emit('add user', username);
 
+  function findMe() {
+    navigator.geolocation.getCurrentPosition(function(location) {
+      socket.emit('new location',{
+        tyLat : location.coords.latitude,
+        tyLng : location.coords.longitude
+      })
+      //you.setPosition(new google.maps.LatLng( tyLat,tyLng ));
+      him.setPosition(new google.maps.LatLng( himLat,himLng ));
+      //console.log(location.coords.accuracy);
+    });
+  }
+  setTimeout(findMe, 250);
   // Sends a chat message
   function sendMessage (message) {
       socket.emit('new location', message);
@@ -34,7 +46,8 @@
 
   // Whenever the server emits 'new message', update the chat body
   socket.on('new location', function (data) {
-    console.log(data);
+    console.log(data.tyLat);
+    console.log(data.tyLng);
   });
 
   // Whenever the server emits 'user joined', log it in the chat body
