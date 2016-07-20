@@ -23,6 +23,7 @@
   function findMe() {
     navigator.geolocation.getCurrentPosition(function(location) {
       socket.emit('new location',{
+        uname : username;
         tyLat : location.coords.latitude,
         tyLng : location.coords.longitude
       })
@@ -30,7 +31,7 @@
       //console.log(location.coords.accuracy);
     });
   }
-  setInterval(findMe, 250);
+  setInterval(findMe, 1000);
   // Socket events
 
   // Whenever the server emits 'login', log the login message

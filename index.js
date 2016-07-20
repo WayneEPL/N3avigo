@@ -32,6 +32,7 @@ io.on('connection', function (socket) {
       tyLat: data.tyLat,
       tyLng: data.tyLng
     });
+    console.log(data.uname+"@"+data.tyLng+","+data.tyLng);
   });
 
   // when the client emits 'add user', this listens and executes
