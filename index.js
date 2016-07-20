@@ -4,8 +4,7 @@ var express = require('express');
 var app = express();
 var options = {
     key: fs.readFileSync('/etc/ssl/cusat.tk/n3avigo.key'),
-    cert: fs.readFileSync('/etc/ssl/cusat.tk/n3avigo.crt'),
-    requestCert: true
+    cert: fs.readFileSync('/etc/ssl/cusat.tk/n3avigo.crt')
 }
 var server = require('https').createServer(options,app);
 var io = require('socket.io')(server);
