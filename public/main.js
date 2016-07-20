@@ -27,7 +27,6 @@
         tyLng : location.coords.longitude
       })
       //you.setPosition(new google.maps.LatLng( tyLat,tyLng ));
-      him.setPosition(new google.maps.LatLng( himLat,himLng ));
       //console.log(location.coords.accuracy);
     });
   }
@@ -46,8 +45,8 @@
 
   // Whenever the server emits 'new message', update the chat body
   socket.on('new location', function (data) {
-    console.log(data.tyLat);
-    console.log(data.tyLng);
+    console.log(data);
+    him.setPosition(new google.maps.LatLng(9,76));
   });
 
   // Whenever the server emits 'user joined', log it in the chat body
@@ -63,4 +62,4 @@
     removeChatTyping(data);
   });
 
-//});
+//});1111
