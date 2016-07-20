@@ -29,10 +29,11 @@ io.on('connection', function (socket) {
   socket.on('new location', function (data) {
     // we tell the client to execute 'new message'
     socket.broadcast.emit('new location', {
+      uname: data.uname,
       tyLat: data.tyLat,
       tyLng: data.tyLng
     });
-    console.log(data.uname+"@"+data.tyLng+","+data.tyLng);
+    console.log(data.uname+"@"+data.tyLat+","+data.tyLng);
   });
 
   // when the client emits 'add user', this listens and executes
