@@ -21,11 +21,11 @@
         position: {lat:0,lng:0},
         title: 'You'
       });
-      him = new google.maps.Marker({
+      /*him = new google.maps.Marker({
         map: map,
         position: {lat:0,lng:0},
         title: 'Him'
-      });
+      });*/
     }
     google.maps.event.addDomListener(window, 'load', initialize);
     function resize(){
@@ -39,7 +39,7 @@
         var tyLat = location.coords.latitude;
         var tyLng = location.coords.longitude;
         you.setPosition(new google.maps.LatLng( tyLat,tyLng ));
-        him.setPosition(new google.maps.LatLng( himLat,himLng ));
+        //him.setPosition(new google.maps.LatLng( himLat,himLng ));
         //console.log(location.coords.accuracy);
       });
     }
