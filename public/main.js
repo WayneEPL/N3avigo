@@ -1,6 +1,6 @@
 //$(function() {
   // Initialize variables
-  var $window = $(window);
+  //var $window = $(window);
 
   // Prompt for setting a username
   
