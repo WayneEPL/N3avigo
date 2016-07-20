@@ -35,7 +35,7 @@
     google.maps.event.addDomListener(window, 'load', initialize);
     function resize(){
       var bounds = new google.maps.LatLngBounds();
-      //bounds.extend(you.getPosition());
+      bounds.extend(you.getPosition());
       bounds.extend(him.getPosition());
       map.fitBounds(bounds);
     }
