@@ -32,6 +32,8 @@ io.on('connection', function (socket) {
       tyLat: data.tyLat,
       tyLng: data.tyLng
     });
+    console.log("Data : " + data + " : !Data");
+    console.log("Socket : " + socket + " : !Socket");
   });
 
   // when the client emits 'add user', this listens and executes

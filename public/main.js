@@ -31,11 +31,6 @@
     });
   }
   setTimeout(findMe, 250);
-  // Sends a chat message
-  function sendMessage (message) {
-      socket.emit('new location', message);
-  }
-
   // Socket events
 
   // Whenever the server emits 'login', log the login message
