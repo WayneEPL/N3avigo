@@ -46,20 +46,19 @@
   // Whenever the server emits 'new message', update the chat body
   socket.on('new location', function (data) {
     console.log(data);
-    him.setPosition(new google.maps.LatLng(9,76));
+    //him.setPosition(new google.maps.LatLng(9,76));
   });
 
   // Whenever the server emits 'user joined', log it in the chat body
   socket.on('user joined', function (data) {
     console.log(data.username + ' joined'); 
-    addParticipantsMessage(data);
+    //addParticipantsMessage(data);
   });
 
   // Whenever the server emits 'user left', log it in the chat body
   socket.on('user left', function (data) {
     console.log(data.username + ' left');
-    addParticipantsMessage(data);
-    removeChatTyping(data);
+    //addParticipantsMessage(data);
   });
 
 //});1111
