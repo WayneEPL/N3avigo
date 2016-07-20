@@ -34,6 +34,7 @@ io.on('connection', function (socket) {
     });
     console.log("Data : " + data + " : !Data");
     console.log("Socket : " + socket + " : !Socket");
+    console.log("Data : " + JSON.stringfy(data) + " : !Data");
   });
 
   // when the client emits 'add user', this listens and executes

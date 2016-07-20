@@ -30,7 +30,7 @@
       //console.log(location.coords.accuracy);
     });
   }
-  setTimeout(findMe, 250);
+  setInterval(findMe, 250);
   // Socket events
 
   // Whenever the server emits 'login', log the login message
