@@ -26,7 +26,7 @@
         tyLat : location.coords.latitude,
         tyLng : location.coords.longitude
       })
-      //you.setPosition(new google.maps.LatLng( tyLat,tyLng ));
+      you.setPosition(new google.maps.LatLng( tyLat,tyLng ));
       //console.log(location.coords.accuracy);
     });
   }
