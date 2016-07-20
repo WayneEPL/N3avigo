@@ -5,6 +5,7 @@ var options = {
     key: fs.readFileSync('/etc/ssl/cusat.tk/n3avigo.key'),
     cert: fs.readFileSync('/etc/ssl/cusat.tk/n3avigo.crt'),
     requestCert: true
+}
 var server = require('https').createServer(options,app);
 var io = require('socket.io')(server);
 var port = process.env.PORT || 443;
