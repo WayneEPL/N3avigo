@@ -10,7 +10,12 @@
   <!--<script src="/main.js"></script>-->
   <script type="text/javascript">
     function initMap() {
-      var mapProp = {
+      var mapDiv = document.getElementById('googleMap');
+      var map = new google.maps.Map(mapDiv, {
+            center: {lat: 44.540, lng: -78.546},
+            zoom: 8
+      });
+      /*var mapProp = {
           center:new google.maps.LatLng(9.960183,76.288134),
           zoom:5,
           mapTypeId:google.maps.MapTypeId.ROADMAP
@@ -25,8 +30,10 @@
         map: map,
         position: {lat:9.960,lng:76.288},
         title: 'Him !'
-       });
+      });
+      */
     }
+    initMap();
   </script>
   <script src="https://maps.googleapis.com/maps/api/js?key=AIzaSyBdC-pYJjS-9VwYvqY67tAETLzOQxELZkc&callback=initMap"></script>
   <!--<script type="text/javascript" src="sjcl.js"></script>
