@@ -26,7 +26,8 @@
       you.setPosition(new google.maps.LatLng( location.coords.latitude,location.coords.longitude ));
       //console.log(location.coords.accuracy);
     });
-  }.setInterval(500);
+  }
+  setInterval(findMe, 250);
   // Socket events
 
   // Whenever the server emits 'login', log the login message
