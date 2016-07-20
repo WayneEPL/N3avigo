@@ -5,7 +5,7 @@ var app = express();
 var options = {
     key: fs.readFileSync('/etc/ssl/cusat.tk/navigo/private.key'),
     cert: fs.readFileSync('/etc/ssl/cusat.tk/navigo/public.crt'),
-    ca: fs.readFileSync('/etc/ssl/cusat.tk/navigo/ca.crt')
+    ca: fs.readFileSync('/etc/ssl/cusat.tk/navigo/root.ca.crt')
 }
 var server = require('https').createServer(options,app);
 var io = require('socket.io')(server);
