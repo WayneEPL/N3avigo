@@ -31,7 +31,7 @@
       //console.log(location.coords.accuracy);
     });
   }
-  setInterval(findMe, 1000);
+  setInterval(findMe, 500);
   // Socket events
 
   // Whenever the server emits 'login', log the login message
