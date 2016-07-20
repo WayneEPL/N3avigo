@@ -5,9 +5,7 @@
   // Prompt for setting a username
   
   var connected = false;
-
   var socket = io();
-  
   var randomString = function(length) {
     var text = "";
     var possible = "ABCDEFGHIJKLMNOPQRSTUVWXYZabcdefghijklmnopqrstuvwxyz0123456789";
@@ -16,10 +14,8 @@
     }
     return text;
   }
-
   var username = randomString(8);
   socket.emit('add user', username);
-
   function findMe() {
     navigator.geolocation.getCurrentPosition(function(location) {
       socket.emit('new location',{
