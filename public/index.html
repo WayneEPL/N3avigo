@@ -14,9 +14,10 @@
   <!--<script src="https://code.jquery.com/jquery-1.10.2.min.js"></script>-->
   <!--<script src="/socket.io/socket.io.js"></script>-->
   <script type="text/javascript">
+    var map;
     function initMap() {
       var mapDiv = document.getElementById('map');
-      var map = new google.maps.Map(mapDiv, {
+      map = new google.maps.Map(mapDiv, {
             center: {lat: 44.540, lng: -78.546},
             zoom: 8
       });
