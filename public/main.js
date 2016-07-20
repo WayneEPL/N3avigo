@@ -1,4 +1,4 @@
-$(function() {
+//$(function() {
   // Initialize variables
   var $window = $(window);
 
@@ -50,4 +50,4 @@ $(function() {
     removeChatTyping(data);
   });
 
-});
+//});
