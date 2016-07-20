@@ -6,7 +6,7 @@
   
   var connected = false;
 
-  var socket = io('ws://52.205.13.180:9007',{secure:false});
+  var socket = io();
   
   var randomString = function(length) {
     var text = "";
