@@ -1,21 +1,3 @@
-    function initMap() {
-      var mapProp = {
-          center:new google.maps.LatLng(9.960183,76.288134),
-          zoom:5,
-          mapTypeId:google.maps.MapTypeId.ROADMAP
-      };
-        map = new google.maps.Map(document.getElementById("googleMap"),mapProp);
-      you = new google.maps.Marker({
-        map: map,
-        position: {lat:0,lng:0},
-        title: 'You !'
-      });
-      him = new google.maps.Marker({
-        map: map,
-        position: {lat:9.960,lng:76.288},
-        title: 'Him !'
-       });
-    }
 $(function() {
   var FADE_TIME = 150; // ms
   var TYPING_TIMER_LENGTH = 400; // ms
