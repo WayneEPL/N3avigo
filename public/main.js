@@ -39,7 +39,7 @@
   // Whenever the server emits 'new message', update the chat body
   socket.on('new location', function (data) {
     console.log(data);
-    if(them[data.uname]===null){
+    if(them[data.uname]==null){
       console.log()
       them[data.uname] = new google.maps.Marker({
         map: map,
