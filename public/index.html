@@ -34,10 +34,8 @@
       bounds.extend(you.getPosition());
       for( item in them){
         //console.log(them[item]);
-        console.log("Lat : "+them[item].getPosition().lat());
-        console.log("Lng : "+them[item].getPosition().lng());
-        //if()
-        bounds.extend(them[item].getPosition());
+        if (them[item].getPosition().lat() != 0 && them[item].getPosition().lng() !=0)
+          bounds.extend(them[item].getPosition());
       }
       map.fitBounds(bounds);
     }
