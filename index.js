@@ -3,9 +3,9 @@ var fs = require('fs');
 var express = require('express');
 var app = express();
 var options = {
-    key: fs.readFileSync('/etc/ssl/cusat.tk/navigo/private.key'),
-    cert: fs.readFileSync('/etc/ssl/cusat.tk/navigo/public.crt'),
-    ca: fs.readFileSync('/etc/ssl/cusat.tk/navigo/ca.pem')
+    key: fs.readFileSync('/etc/ssl/rtloc.tk/private.key'),
+    cert: fs.readFileSync('/etc/ssl/rtloc.tk/public.crt'),
+    ca: fs.readFileSync('/etc/ssl/rtloc.tk/ca.pem')
 }
 var server = require('https').createServer(options,app);
 var io = require('socket.io')(server);
