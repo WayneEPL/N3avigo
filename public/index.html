@@ -31,7 +31,8 @@
     google.maps.event.addDomListener(window, 'load', initialize);
     function resize(){
       var bounds = new google.maps.LatLngBounds();
-      bounds.extend(you.getPosition());
+      if (you.getPosition().lat() != 0 && you.getPosition().lng() !=0)
+        bounds.extend(you.getPosition());
       for( item in them){
         //console.log(them[item]);
         if (them[item].getPosition().lat() != 0 && them[item].getPosition().lng() !=0)
