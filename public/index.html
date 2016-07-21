@@ -33,7 +33,10 @@
       var bounds = new google.maps.LatLngBounds();
       bounds.extend(you.getPosition());
       for( item in them){
-        console.log(them[item]);
+        //console.log(them[item]);
+        console.log("Lat : "+them[item].getPosition().lat());
+        console.log("Lng : "+them[item].getPosition().lng());
+        //if()
         bounds.extend(them[item].getPosition());
       }
       map.fitBounds(bounds);
