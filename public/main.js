@@ -24,7 +24,7 @@
         tyLng : location.coords.longitude
       })
       you.setPosition(new google.maps.LatLng( location.coords.latitude,location.coords.longitude ));
-      document.getElementById("log").innerHTML = location.coords.latitude + "," + location.coords.longitude ;
+      document.getElementById("log").innerHTML = location.coords.latitude + ",  " + location.coords.longitude ;
       //console.log(location.coords.accuracy);
     });
   }
@@ -39,7 +39,16 @@
   // Whenever the server emits 'new message', update the chat body
   socket.on('new location', function (data) {
     console.log(data);
-    him.setPosition(new google.maps.LatLng(data.tyLat,data.tyLng));
+    if(them[data.uname]===null){
+      console.log()
+      them[data.uname] = new google.maps.Marker({
+        map: map,
+        position: {lat:data.tyLat,lng:data.tyLng},
+        title: 'Him'
+      });
+      
+    }else
+      them[data.uname].setPosition(new google.maps.LatLng(data.tyLat,data.tyLng));
   });
 
   // Whenever the server emits 'user joined', log it in the chat body
