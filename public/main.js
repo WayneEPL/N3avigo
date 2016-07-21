@@ -41,11 +41,12 @@
     console.log(data);
     if(them.indexOf[data.uname] == -1){
       console.log("Creating " + them[data.uname] + "...");
-      them[data.uname] = new google.maps.Marker({
+      var tempMarker = new google.maps.Marker({
         map: map,
         position: {lat:data.tyLat,lng:data.tyLng},
         title: 'Him'
       });
+      them[data.uname] = tempMarker;
     }else
       them[data.uname].setPosition(new google.maps.LatLng(data.tyLat,data.tyLng));
   });
