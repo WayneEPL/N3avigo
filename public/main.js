@@ -40,13 +40,12 @@
   socket.on('new location', function (data) {
     console.log(data);
     if(them.indexOf[data.uname] == -1){
-      console.log()
+      console.log("Creating " + them[data.uname] + "...");
       them[data.uname] = new google.maps.Marker({
         map: map,
         position: {lat:data.tyLat,lng:data.tyLng},
         title: 'Him'
       });
-      
     }else
       them[data.uname].setPosition(new google.maps.LatLng(data.tyLat,data.tyLng));
   });
