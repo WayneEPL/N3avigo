@@ -7,7 +7,6 @@
   <script type="text/javascript" src="jquery.min.js"> </script>
   <script type="text/javascript" src="sjcl.js"> </script>
   <script>
-    var bounds = new google.maps.LatLngBounds();
     var map;
     var you;
     var them = new Array();
@@ -31,14 +30,12 @@
     }
     google.maps.event.addDomListener(window, 'load', initialize);
     function resize(){
+      var bounds = new google.maps.LatLngBounds();
       bounds.extend(you.getPosition());
-      /*
-      them.forEach(function(item, index){
-        console.log(index);
+      for( item in them){
         console.log(item);
         bounds.extend(item.getPosition());
-      });
-      */
+      }
       map.fitBounds(bounds);
     }
     setInterval(resize,500);
