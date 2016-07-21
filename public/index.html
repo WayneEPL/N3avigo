@@ -31,7 +31,10 @@
     function resize(){
       var bounds = new google.maps.LatLngBounds();
       bounds.extend(you.getPosition());
-      bounds.extend(him.getPosition());
+      var i;
+      them.forEach(function(item, index){
+        bounds.extend(item.getPosition());
+      });
       map.fitBounds(bounds);
     }
     setInterval(resize,250);
