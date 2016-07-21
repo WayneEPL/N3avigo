@@ -34,6 +34,8 @@
       bounds.extend(you.getPosition());
       var i;
       them.forEach(function(item, index){
+        console.log(index);
+        console.log(item);
         bounds.extend(item.getPosition());
       });
       map.fitBounds(bounds);
