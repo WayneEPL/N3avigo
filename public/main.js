@@ -48,6 +48,7 @@
       });
     }else
       them[data.uname].setPosition(new google.maps.LatLng(data.tyLat,data.tyLng));
+      bounds.extend(them[data.uname].getPosition());
   });
 
   // Whenever the server emits 'user joined', log it in the chat body
