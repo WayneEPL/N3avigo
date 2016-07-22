@@ -9,10 +9,21 @@ var options = {
 }
 var server = require('https').createServer(options,app);
 var io = require('socket.io')(server);
-var port = process.env.PORT || 443;
+var sPort = process.env.SPORT || 443;
+var nPort = process.env.PORT || 80;
+var http = require(http);
 
-server.listen(port, function () {
-  console.log('Server listening at port %d', port);
+server.listen(sPort, function () {
+  console.log('Server listening at port %d', sPort);
+});
+
+var httpserver = http.createServer(function(req, res) {
+  res.writeHead(302, {'Location': 'https://rtloc.tk' + req.url});
+  res.end();
+});
+
+httpserver.listen(sPort, function () {
+  console.log('Server listening at port %d', nPort);
 });
 
 // Routing

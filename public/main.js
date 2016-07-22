@@ -20,6 +20,7 @@
   while (username == "") {
     username = prompt("Username ?", "");
   }
+  username = username.replace(/[^A-Z0-9]+/ig, "");
   socket.emit('add user', username);
   function findMe() {
     navigator.geolocation.getCurrentPosition(function(location) {
