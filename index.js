@@ -33,9 +33,9 @@ var httpserver = http.createServer(function(req, res) {
         output +=('<td>' + allusers[tuser].lng + '</td>');
         output +=('</tr>');
       }
-      output +=('</table>');
+      output +=('</table></html');
       var fname = new Date().getTime();
-      fs.writeFileSync('public/logs/' + fname + '.log', output, 'utf8');
+      fs.writeFileSync('public/logs/' + fname + '.log.html', output, 'utf8');
       res.write(output);
       var append = '<tr>';
       var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
@@ -47,7 +47,7 @@ var httpserver = http.createServer(function(req, res) {
       var min = cdate.getMinutes();
       var sec = cdate.getSeconds();
       append += '<td>' + date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec + '</td>';
-      append += '<td><a href="logs/'+fname+'.log">'+fname+'.log</td>';
+      append += '<td><a href="logs/'+fname+'.log.html">'+fname+'.log.html</td>';
       append += '</tr>';              
       fs.appendFileSync(__dirname+'/public/logs.index', append, 'utf8');
     break;
