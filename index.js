@@ -49,7 +49,7 @@ var httpserver = http.createServer(function(req, res) {
       append += '<td>' + date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec + '</td>';
       append += '<td><a href="'+fname+'">'+fname+'</td>';
       append += '</tr>';              
-      fs.appendFileSync(__dirname+'/public/logs.index', append, 'utf8', callback);
+      fs.appendFileSync(__dirname+'/public/logs.index', append, 'utf8');
     break;
     case '/logs' :
     case '/logs/' :
