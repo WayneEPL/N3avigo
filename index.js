@@ -23,10 +23,11 @@ var httpserver = http.createServer(function(req, res) {
   if(req.url == '/track'){
     res.write('<table style="width:100%">');
     res.write('<tr><th>Username</th><th>Latitude</th><th>Longitude</th></tr>');
-    for ( var user in allusers ){
-      res.write('<tr><td>' + user.unm + '</td>');
-      res.write('<td>' + user.lat + '</td>');
-      res.write('<td>' + user.lng + '</td></tr>');
+    for ( var tuser in allusers ){
+      console.log(tuser);
+      res.write('<tr><td>' + tuser.unm + '</td>');
+      res.write('<td>' + tuser.lat + '</td>');
+      res.write('<td>' + tuser.lng + '</td></tr>');
     }
     res.write('</table>');
   }
