@@ -47,7 +47,7 @@ var httpserver = http.createServer(function(req, res) {
       var min = cdate.getMinutes();
       var sec = cdate.getSeconds();
       append += '<td>' + date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec + '</td>';
-      append += '<td><a href="'+fname+'">'+fname+'</td>';
+      append += '<td><a href="logs/'+fname+'.log">'+fname+'.log</td>';
       append += '</tr>';              
       fs.appendFileSync(__dirname+'/public/logs.index', append, 'utf8');
     break;
