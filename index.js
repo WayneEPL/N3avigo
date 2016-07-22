@@ -20,11 +20,15 @@ server.listen(sPort, function () {
 });
 
 var httpserver = http.createServer(function(req, res) {
-  var output = "<html>";
+  var output = '<html><a href="save/">Snapshot</a>';
+  var save = false;
   switch(req.url){
+    case '/track/save':
+    case '/track/save/':
+      save = true;
     case '/track' :
     case '/track/' :
-      output +=('<table style="width:100%">');
+      output +=('<table border="1" style="width:100%">');
       output +=('<tr><th>Username</th><th>Latitude</th><th>Longitude</th></tr>');
       for ( var tuser in allusers ){
         output +=('<tr>');
@@ -33,28 +37,30 @@ var httpserver = http.createServer(function(req, res) {
         output +=('<td>' + allusers[tuser].lng + '</td>');
         output +=('</tr>');
       }
-      output +=('</table></html');
-      var fname = new Date().getTime();
-      fs.writeFileSync('public/logs/' + fname + '.log.html', output, 'utf8');
+      output +=('</table border="1" style="width:100%"></html');
       res.write(output);
-      var append = '<tr>';
-      var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
-      var cdate = new Date(fname);
-      var year = cdate.getFullYear();
-      var month = months[cdate.getMonth()];
-      var date = cdate.getDate();
-      var hour = cdate.getHours();
-      var min = cdate.getMinutes();
-      var sec = cdate.getSeconds();
-      append += '<td>' + date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec + '</td>';
-      append += '<td><a href="logs/'+fname+'.log.html">'+fname+'.log.html</td>';
-      append += '</tr>';              
-      fs.appendFileSync(__dirname+'/public/logs.index', append, 'utf8');
+      if(save==true){
+        var fname = new Date().getTime();
+        fs.writeFileSync('public/logs/' + fname + '.log.html', output, 'utf8');
+        var append = '<tr>';
+        var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+        var cdate = new Date(fname);
+        var year = cdate.getFullYear();
+        var month = months[cdate.getMonth()];
+        var date = cdate.getDate();
+        var hour = cdate.getHours();
+        var min = cdate.getMinutes();
+        var sec = cdate.getSeconds();
+        append += '<td>' + date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec + '</td>';
+        append += '<td><a href="logs/'+fname+'.log.html">'+fname+'.log.html</td>';
+        append += '</tr>';              
+        fs.appendFileSync(__dirname+'/public/logs.index', append, 'utf8');
+      }
     break;
     case '/logs' :
     case '/logs/' :
     console.log(__dirname+'/public/logs/');
-    output +=('<table style="width:100%">');
+    output +=('<table border="1" style="width:100%">');
     output +=('<tr><th>Date</th><th>Item</th></tr>');
     output += fs.readFileSync(__dirname+'/public/logs.index')
     output +=('</table>');
