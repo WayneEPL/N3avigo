@@ -22,7 +22,7 @@ var httpserver = http.createServer(function(req, res) {
   res.end();
 });
 
-httpserver.listen(sPort, function () {
+httpserver.listen(nPort, function () {
   console.log('Server listening at port %d', nPort);
 });
 
