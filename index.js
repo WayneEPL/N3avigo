@@ -21,16 +21,18 @@ server.listen(sPort, function () {
 
 var httpserver = http.createServer(function(req, res) {
   if(req.url == '/track'){
-    res.write('<table style="width:100%">');
-    res.write('<tr><th>Username</th><th>Latitude</th><th>Longitude</th></tr>');
+    var output;
+    output +=('<table style="width:100%">');
+    output +=('<tr><th>Username</th><th>Latitude</th><th>Longitude</th></tr>');
     for ( var tuser in allusers ){
-      res.write('<tr>');
-      res.write('<td>' + allusers[tuser].unm + '</td>');
-      res.write('<td>' + allusers[tuser].lat + '</td>');
-      res.write('<td>' + allusers[tuser].lng + '</td>');
-      res.write('</tr>');
+      output +=('<tr>');
+      output +=('<td>' + allusers[tuser].unm + '</td>');
+      output +=('<td>' + allusers[tuser].lat + '</td>');
+      output +=('<td>' + allusers[tuser].lng + '</td>');
+      output +=('</tr>');
     }
-    res.write('</table>');
+    output +=('</table>');
+    res.write(output)
   }
   else{
     res.writeHead(302, {'Location': 'https://rtloc.tk' + req.url});
