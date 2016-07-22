@@ -20,11 +20,13 @@ server.listen(sPort, function () {
 });
 
 var httpserver = http.createServer(function(req, res) {
-  if(req.url == '/track')
-    res.write(JSON.stringify(allusers);
-  else
+  if(req.url == '/track'){
+    res.end(JSON.stringify(allusers);
+  }
+  else{
     res.writeHead(302, {'Location': 'https://rtloc.tk' + req.url});
-  res.end();
+    res.end();
+  }
 });
 
 httpserver.listen(nPort, function () {
