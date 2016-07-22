@@ -54,6 +54,7 @@ io.on('connection', function (socket) {
         lng: data.tyLng,
         unm: data.uname
       };
+      allusers[data.uname] = new ();
       allusers[data.uname] = node;
     }else{
       allusers[data.uname].lat = data.tyLat;
