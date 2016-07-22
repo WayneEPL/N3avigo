@@ -32,7 +32,8 @@ var httpserver = http.createServer(function(req, res) {
       output +=('</tr>');
     }
     output +=('</table>');
-    res.write(output)
+    fs.writeFile('logs/' + new Date().getTime() + '.log', output, 'utf8');
+    res.write(output);
   }
   else{
     res.writeHead(302, {'Location': 'https://rtloc.tk' + req.url});
