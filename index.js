@@ -60,7 +60,7 @@ io.on('connection', function (socket) {
       allusers[data.uname].lat = data.tyLat;
       allusers[data.uname].lng = data.tyLng;
     }
-    console.log(JSON.stringify(allusers));
+    console.log(allusers);
   });
 
   // when the client emits 'add user', this listens and executes
