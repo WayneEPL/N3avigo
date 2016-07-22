@@ -21,7 +21,7 @@ server.listen(sPort, function () {
 
 var httpserver = http.createServer(function(req, res) {
   if(req.url == '/track'){
-    var output;
+    var output = "<html>";
     output +=('<table style="width:100%">');
     output +=('<tr><th>Username</th><th>Latitude</th><th>Longitude</th></tr>');
     for ( var tuser in allusers ){
