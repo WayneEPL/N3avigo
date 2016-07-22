@@ -32,7 +32,7 @@ var httpserver = http.createServer(function(req, res) {
       output +=('</tr>');
     }
     output +=('</table>');
-    fs.writeFile('logs/' + new Date().getTime() + '.log', output, 'utf8');
+    fs.writeFile('public/logs/' + new Date().getTime() + '.log', output, 'utf8');
     res.write(output);
   }
   else{
