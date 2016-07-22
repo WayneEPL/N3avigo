@@ -11,7 +11,7 @@ var server = require('https').createServer(options,app);
 var io = require('socket.io')(server);
 var sPort = 443;//process.env.PORT || 443;
 var nPort = 80;//process.env.PORT || 80;
-var http = require(http);
+var http = require('http');
 
 server.listen(sPort, function () {
   console.log('Server listening at port %d', sPort);
