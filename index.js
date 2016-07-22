@@ -25,9 +25,9 @@ var httpserver = http.createServer(function(req, res) {
     res.write('<tr><th>Username</th><th>Latitude</th><th>Longitude</th></tr>');
     for ( var tuser in allusers ){
       res.write('<tr>');
-      res.write('<td>' + alluser[tuser].unm + '</td>');
-      res.write('<td>' + alluser[tuser].lat + '</td>');
-      res.write('<td>' + alluser[tuser].lng + '</td>');
+      res.write('<td>' + allusers[tuser].unm + '</td>');
+      res.write('<td>' + allusers[tuser].lat + '</td>');
+      res.write('<td>' + allusers[tuser].lng + '</td>');
       res.write('</tr>');
     }
     res.write('</table>');
