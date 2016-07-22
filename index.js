@@ -65,7 +65,7 @@ var httpserver = http.createServer(function(req, res) {
       res.writeHead(302, {'Location': 'https://rtloc.tk' + req.url});
     break;
     default:
-      res.sendFile(__dirname+'/public'+req.url);
+      res.write(fs.readFileSync(__dirname+'/public'+req.url));
     break;
   }
   res.end();
