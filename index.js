@@ -49,6 +49,7 @@ var httpserver = http.createServer(function(req, res) {
             output +=('</tr>');              
           }
           output +=('</table>');
+          console.log(output);
           res.write(output);
       });      
     default :
