@@ -38,7 +38,15 @@ var httpserver = http.createServer(function(req, res) {
       fs.writeFileSync('public/logs/' + fname + '.log', output, 'utf8');
       res.write(output);
       var append = '<tr>';
-      append += '<td>' + (i+1) + '</td>';
+      var months = ['Jan','Feb','Mar','Apr','May','Jun','Jul','Aug','Sep','Oct','Nov','Dec'];
+      var cdate = new Date(fname);
+      var year = cdate.getFullYear();
+      var month = months[cdate.getMonth()];
+      var date = cdate.getDate();
+      var hour = cdate.getHours();
+      var min = cdate.getMinutes();
+      var sec = cdate.getSeconds();
+      append += '<td>' + date + ' ' + month + ' ' + year + ' ' + hour + ':' + min + ':' + sec + '</td>';
       append += '<td><a href="'+fname+'">'+fname+'</td>';
       append += '</tr>';              
       fs.appendFileSync(__dirname+'/public/logs.index', append, 'utf8', callback);
@@ -47,7 +55,7 @@ var httpserver = http.createServer(function(req, res) {
     case '/logs/' :
     console.log(__dirname+'/public/logs/');
     output +=('<table style="width:100%">');
-    output +=('<tr><th>Sl No</th><th>Item</th></tr>');
+    output +=('<tr><th>Date</th><th>Item</th></tr>');
     output += fs.readFileSync(__dirname+'/public/logs.index')
     output +=('</table>');
     //console.log(output);
