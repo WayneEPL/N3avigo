@@ -21,7 +21,14 @@ server.listen(sPort, function () {
 
 var httpserver = http.createServer(function(req, res) {
   if(req.url == '/track'){
-    res.end(JSON.stringify(allusers));
+    res.write('<table style="width:100%">');
+    res.write('<tr><th>Username</th><th>Latitude</th><th>Longitude</th></tr>');
+    for ( var user in allusers ){
+      res.write('<tr><td>'user.unm'</td>');
+      res.write('<td>'user.lat'</td>');
+      res.write('<td>'user.lng'</td></tr>');
+    }
+    res.write('</table>');
   }
   else{
     res.writeHead(302, {'Location': 'https://rtloc.tk' + req.url});
@@ -57,6 +64,7 @@ io.on('connection', function (socket) {
       allusers[data.uname] = new Object();
       allusers[data.uname].lat = data.tyLat;
       allusers[data.uname].lng = data.tyLng;
+      allusers[data.uname].unm = data.uname;
       //allusers[data.uname] = node;
     }else{
       allusers[data.uname].lat = data.tyLat;
