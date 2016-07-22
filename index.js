@@ -24,10 +24,11 @@ var httpserver = http.createServer(function(req, res) {
     res.write('<table style="width:100%">');
     res.write('<tr><th>Username</th><th>Latitude</th><th>Longitude</th></tr>');
     for ( var tuser in allusers ){
-      console.log(tuser);
-      res.write('<tr><td>' + tuser.unm + '</td>');
-      res.write('<td>' + tuser.lat + '</td>');
-      res.write('<td>' + tuser.lng + '</td></tr>');
+      res.write('<tr>');
+      res.write('<td>' + alluser[tuser].unm + '</td>');
+      res.write('<td>' + alluser[tuser].lat + '</td>');
+      res.write('<td>' + alluser[tuser].lng + '</td>');
+      res.write('</tr>');
     }
     res.write('</table>');
   }
