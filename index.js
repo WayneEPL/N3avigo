@@ -20,11 +20,12 @@ server.listen(sPort, function () {
 });
 
 var httpserver = http.createServer(function(req, res) {
-  var output = '<html><a href="save/">Snapshot</a>';
+  var output = '<html><a href="track/save">Snapshot</a>';
   var save = false;
   switch(req.url){
     case '/track/save':
     case '/track/save/':
+      output = '<html><meta http-equiv="refresh" content="7; URL=http://rtloc.tk/track">'
       save = true;
     case '/track' :
     case '/track/' :
