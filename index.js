@@ -41,17 +41,17 @@ var httpserver = http.createServer(function(req, res) {
     case '/logs/' :
     console.log(__dirname+'/public/logs/');
       fs.readdir(__dirname+'/public/logs/', function(err, items) {
-          output +=('<table style="width:100%">');
-          output +=('<tr><th>Sl No</th><th>Item</th></tr>');
-          for (var i=0; i<items.length; i++) {
-            output +=('<tr>');
-            output +=('<td>' + (i+1) + '</td>');
-            output +=('<td><a href="'+items[i]+'">'+items[i]+'</td>');
-            output +=('</tr>');              
-          }
-          output +=('</table>');
-          console.log(output);
-          res.write(output);
+        output +=('<table style="width:100%">');
+        output +=('<tr><th>Sl No</th><th>Item</th></tr>');
+        for (var i=0; i<items.length; i++) {
+          output +=('<tr>');
+          output +=('<td>' + (i+1) + '</td>');
+          output +=('<td><a href="'+items[i]+'">'+items[i]+'</td>');
+          output +=('</tr>');              
+        }
+        output +=('</table>');
+        //console.log(output);
+        res.write(output);
       });     
     break; 
     default :
