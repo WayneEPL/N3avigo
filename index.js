@@ -48,6 +48,8 @@ var httpserver = http.createServer(function(req, res) {
             output +=('<td><a href="'+items[i]+'">'+items[i]+'</td>');
             output +=('</tr>');              
           }
+          output +=('</table>');
+          res.write(output);
       });      
     default :
       res.writeHead(302, {'Location': 'https://rtloc.tk' + req.url});
