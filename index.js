@@ -34,25 +34,24 @@ var httpserver = http.createServer(function(req, res) {
         output +=('</tr>');
       }
       output +=('</table>');
-      fs.writeFile('public/logs/' + new Date().getTime() + '.log', output, 'utf8');
+      var fname = new Date().getTime();
+      fs.writeFileSync('public/logs/' + fname + '.log', output, 'utf8');
       res.write(output);
+      var append = '<tr>';
+      append += '<td>' + (i+1) + '</td>';
+      append += '<td><a href="'+fname+'">'+fname+'</td>';
+      append += '</tr>';              
+      fs.appendFileSync(__dirname+'/public/logs.index', append, 'utf8', callback);
     break;
     case '/logs' :
     case '/logs/' :
     console.log(__dirname+'/public/logs/');
-      fs.readdir(__dirname+'/public/logs/', function(err, items) {
-        output +=('<table style="width:100%">');
-        output +=('<tr><th>Sl No</th><th>Item</th></tr>');
-        for (var i=0; i<items.length; i++) {
-          output +=('<tr>');
-          output +=('<td>' + (i+1) + '</td>');
-          output +=('<td><a href="'+items[i]+'">'+items[i]+'</td>');
-          output +=('</tr>');              
-        }
-        output +=('</table>');
-        //console.log(output);
-        res.write(output);
-      });     
+    output +=('<table style="width:100%">');
+    output +=('<tr><th>Sl No</th><th>Item</th></tr>');
+    output += fs.readFileSync(__dirname+'/public/logs.index')
+    output +=('</table>');
+    //console.log(output);
+    res.write(output);
     break; 
     default :
       res.writeHead(302, {'Location': 'https://rtloc.tk' + req.url});
