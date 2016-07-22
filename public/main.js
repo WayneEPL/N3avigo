@@ -15,7 +15,7 @@
     return text;
   }
 
-  var username = "user" + randomString(8);
+  var username = "";//"user" + randomString(8);
   var tusername = username;
   username = prompt("Username ?", tusername);
   while (username == "") {
