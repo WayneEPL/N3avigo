@@ -15,10 +15,11 @@
     return text;
   }
 
-  var username = "";//randomString(8);
-  
+  var username = "user" + randomString(8);
+  var tusername = username;
+  username = prompt("Username ?", tusername);
   while (username == "") {
-    username = prompt("Username ?", "");
+    username = prompt("Username ?", tusername);
   }
   username = username.replace(/[^A-Z0-9]+/ig, "");
   socket.emit('add user', username);
@@ -34,7 +35,7 @@
       //console.log(location.coords.accuracy);
     });
   }
-  setInterval(findMe, 250);
+  setInterval(findMe, 1000);
   // Socket events
 
   // Whenever the server emits 'login', log the login message

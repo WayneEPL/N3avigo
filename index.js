@@ -13,6 +13,8 @@ var sPort = 443;//process.env.PORT || 443;
 var nPort = 80;//process.env.PORT || 80;
 var http = require('http');
 
+var allusers = new Array();
+
 server.listen(sPort, function () {
   console.log('Server listening at port %d', sPort);
 });
@@ -44,7 +46,19 @@ io.on('connection', function (socket) {
       tyLat: data.tyLat,
       tyLng: data.tyLng
     });
-    console.log(data.uname+"@"+data.tyLat+","+data.tyLng);
+    //console.log(data.uname+"@"+data.tyLat+","+data.tyLng);
+    if(!( data.uname in allusers )){
+      console.log("Creating " + data.uname + "...");
+      allusers[data.uname] = new {
+        lat: data.tyLat,
+        lng: data.tyLng,
+        unm: data.uname
+      };
+    }else{
+      allusers[data.uname].lat = data.tyLat;
+      allusers[data.uname].lng = data.tyLng;
+    }
+    console.log(JSON.stringfy(allusers));
   });
 
   // when the client emits 'add user', this listens and executes
