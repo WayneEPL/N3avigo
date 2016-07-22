@@ -14,7 +14,12 @@
     }
     return text;
   }
-  var username = randomString(8);
+
+  var username = "";//randomString(8);
+  
+  while (username == "") {
+    username = prompt("Username ?", "");
+  }
   socket.emit('add user', username);
   function findMe() {
     navigator.geolocation.getCurrentPosition(function(location) {
