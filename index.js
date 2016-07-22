@@ -20,23 +20,38 @@ server.listen(sPort, function () {
 });
 
 var httpserver = http.createServer(function(req, res) {
-  if(req.url == '/track'){
-    var output = "<html>";
-    output +=('<table style="width:100%">');
-    output +=('<tr><th>Username</th><th>Latitude</th><th>Longitude</th></tr>');
-    for ( var tuser in allusers ){
-      output +=('<tr>');
-      output +=('<td>' + allusers[tuser].unm + '</td>');
-      output +=('<td>' + allusers[tuser].lat + '</td>');
-      output +=('<td>' + allusers[tuser].lng + '</td>');
-      output +=('</tr>');
-    }
-    output +=('</table>');
-    fs.writeFile('public/logs/' + new Date().getTime() + '.log', output, 'utf8');
-    res.write(output);
-  }
-  else{
-    res.writeHead(302, {'Location': 'https://rtloc.tk' + req.url});
+  var output = "<html>";
+  switch(req.url){
+    case '/track' :
+    case '/track/' :
+      output +=('<table style="width:100%">');
+      output +=('<tr><th>Username</th><th>Latitude</th><th>Longitude</th></tr>');
+      for ( var tuser in allusers ){
+        output +=('<tr>');
+        output +=('<td>' + allusers[tuser].unm + '</td>');
+        output +=('<td>' + allusers[tuser].lat + '</td>');
+        output +=('<td>' + allusers[tuser].lng + '</td>');
+        output +=('</tr>');
+      }
+      output +=('</table>');
+      fs.writeFile('public/logs/' + new Date().getTime() + '.log', output, 'utf8');
+      res.write(output);
+    break;
+    case '/logs' :
+    case '/logs/' :
+      fs.readdir(__dirname+'/public/logs', function(err, items) {
+          output +=('<table style="width:100%">');
+          output +=('<tr><th>Sl No</th><th>Item</th></tr>');
+          for (var i=0; i<items.length; i++) {
+            output +=('<tr>');
+            output +=('<td>' + (i+1) + '</td>');
+            output +=('<td><a href="'+items[i]+'">'+items[i]+'</td>');
+            output +=('</tr>');              
+          }
+      });      
+    default :
+      res.writeHead(302, {'Location': 'https://rtloc.tk' + req.url});
+    break;
   }
   res.end();
 });
