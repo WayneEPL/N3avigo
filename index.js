@@ -9,8 +9,8 @@ var options = {
 }
 var server = require('https').createServer(options,app);
 var io = require('socket.io')(server);
-var sPort = process.env.SPORT || 443;
-var nPort = process.env.PORT || 80;
+var sPort = 443;//process.env.PORT || 443;
+var nPort = 80;//process.env.PORT || 80;
 var http = require(http);
 
 server.listen(sPort, function () {
