@@ -61,11 +61,12 @@ var httpserver = http.createServer(function(req, res) {
     //console.log(output);
     res.write(output);
     break; 
-    case '/' :
-      res.writeHead(302, {'Location': 'https://rtloc.tk' + req.url});
-    break;
     default:
-      res.write(fs.readFileSync(__dirname+'/public'+req.url));
+    //case '/' :
+      res.writeHead(302, {'Location': 'https://rtloc.tk' + req.url});
+    //break;
+    //default:
+      //res.write(fs.readFileSync(__dirname+'/public'+req.url));
     break;
   }
   res.end();
