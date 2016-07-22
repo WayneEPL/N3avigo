@@ -32,8 +32,8 @@ var httpserver = http.createServer(function(req, res) {
   }
   else{
     res.writeHead(302, {'Location': 'https://rtloc.tk' + req.url});
-    res.end();
   }
+  res.end();
 });
 
 httpserver.listen(nPort, function () {
