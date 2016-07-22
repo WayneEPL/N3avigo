@@ -15,6 +15,16 @@ var http = require('http');
 
 var allusers = new Array();
 
+function User (type) {
+    this.type = type;
+    this.lat = 0;
+    this.lng = 0;
+    this.set = setCoords;
+}
+function setCoords(lat,lng) {
+    this.lat = lat;
+    this.lng = lng;
+}
 server.listen(sPort, function () {
   console.log('Server listening at port %d', sPort);
 });
@@ -49,13 +59,10 @@ io.on('connection', function (socket) {
     //console.log(data.uname+"@"+data.tyLat+","+data.tyLng);
     if(!( data.uname in allusers )){
       console.log("Creating " + data.uname + "...");
-      var node = {
-        lat: data.tyLat,
-        lng: data.tyLng,
-        unm: data.uname
-      };
-      allusers[data.uname] = new ();
-      allusers[data.uname] = node;
+      allusers[data.uname] = new Object();
+      allusers[data.uname].lat = data.tyLat;
+      allusers[data.uname].lng = data.tyLng;
+      //allusers[data.uname] = node;
     }else{
       allusers[data.uname].lat = data.tyLat;
       allusers[data.uname].lng = data.tyLng;
