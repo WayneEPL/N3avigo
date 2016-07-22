@@ -61,7 +61,10 @@ var httpserver = http.createServer(function(req, res) {
     //console.log(output);
     res.write(output);
     break; 
-    default :
+    case '/' :
+      res.sendFile(__dirname+'/public'+req.url)
+    break;
+    default:
       res.writeHead(302, {'Location': 'https://rtloc.tk' + req.url});
     break;
   }
