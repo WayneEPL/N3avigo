@@ -52,7 +52,8 @@ var httpserver = http.createServer(function(req, res) {
           output +=('</table>');
           console.log(output);
           res.write(output);
-      });      
+      });     
+    break; 
     default :
       res.writeHead(302, {'Location': 'https://rtloc.tk' + req.url});
     break;
