@@ -39,7 +39,7 @@ var httpserver = http.createServer(function(req, res) {
     break;
     case '/logs' :
     case '/logs/' :
-      fs.readdir(__dirname+'/public/logs', function(err, items) {
+      fs.readdir(__dirname+'/public/logs/', function(err, items) {
           output +=('<table style="width:100%">');
           output +=('<tr><th>Sl No</th><th>Item</th></tr>');
           for (var i=0; i<items.length; i++) {
