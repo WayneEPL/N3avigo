@@ -49,11 +49,12 @@ io.on('connection', function (socket) {
     //console.log(data.uname+"@"+data.tyLat+","+data.tyLng);
     if(!( data.uname in allusers )){
       console.log("Creating " + data.uname + "...");
-      allusers[data.uname] = new node {
+      var node {
         lat: data.tyLat,
         lng: data.tyLng,
         unm: data.uname
       };
+      allusers[data.uname] = node;
     }else{
       allusers[data.uname].lat = data.tyLat;
       allusers[data.uname].lng = data.tyLng;
