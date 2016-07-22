@@ -15,22 +15,15 @@ var http = require('http');
 
 var allusers = new Array();
 
-function User (type) {
-    this.type = type;
-    this.lat = 0;
-    this.lng = 0;
-    this.set = setCoords;
-}
-function setCoords(lat,lng) {
-    this.lat = lat;
-    this.lng = lng;
-}
 server.listen(sPort, function () {
   console.log('Server listening at port %d', sPort);
 });
 
 var httpserver = http.createServer(function(req, res) {
-  res.writeHead(302, {'Location': 'https://rtloc.tk' + req.url});
+  if(req.url == '/track')
+    res.write(allusers);
+  else
+    res.writeHead(302, {'Location': 'https://rtloc.tk' + req.url});
   res.end();
 });
 
@@ -67,7 +60,6 @@ io.on('connection', function (socket) {
       allusers[data.uname].lat = data.tyLat;
       allusers[data.uname].lng = data.tyLng;
     }
-    console.log(allusers);
   });
 
   // when the client emits 'add user', this listens and executes
